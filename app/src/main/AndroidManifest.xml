@@ -11,6 +11,7 @@
             android:theme="@style/Theme.QuizGame">
         <activity
                 android:name=".Splash_Screen"
+                android:theme="@style/Theme.QuizGame_Splash"
                 android:exported="true" />
         <activity
                 android:name=".MainActivity"
