@@ -6,4 +6,31 @@
         android:layout_height="match_parent"
         tools:context=".Splash_Screen">
 
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:srcCompat="@drawable/quiz_show_pic"
+            android:id="@+id/ivSplash"
+            android:scaleType="centerInside"
+            android:layout_marginBottom="23dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvSplash"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="55dp" />
+
+    <TextView
+            android:text="Quiz Game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvSplash"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="48sp"
+            android:textColor="@android:color/holo_red_dark"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivSplash"
+            android:layout_marginBottom="244dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
