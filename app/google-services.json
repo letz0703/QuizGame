@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "594891343466",
+    "project_id": "quiz-game-20c9c",
+    "storage_bucket": "quiz-game-20c9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594891343466:android:bbe108a07e9e29352bac13",
+        "android_client_info": {
+          "package_name": "com.letz.quizgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594891343466-png4di0a9ahrcdq44lbkt1m8hqut32p1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj_qD-hxJU3ucFBwhtkNWAigRlsOXnUr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594891343466-png4di0a9ahrcdq44lbkt1m8hqut32p1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
