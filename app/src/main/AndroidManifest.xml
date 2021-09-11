@@ -10,9 +10,13 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.QuizGame">
         <activity
-                android:name=".Login_Page"
-                android:theme="@style/Theme.Login_Page"
+                android:name=".Signup_Page"
+                android:parentActivityName=".Login_Page"
                 android:exported="true" />
+        <activity
+                android:name=".Login_Page"
+                android:exported="true"
+                android:theme="@style/Theme.Login_Page" />
         <activity
                 android:name=".Splash_Screen"
                 android:exported="true"

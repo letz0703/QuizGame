@@ -2,6 +2,7 @@ package com.letz.quizgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,7 +40,8 @@ public class Login_Page extends AppCompatActivity
         });
 
         signUp.setOnClickListener(v -> {
-
+            Intent i = new Intent(Login_Page.this,Signup_Page.class);
+            startActivity(i);
         });
 
         forgotPassword.setOnClickListener(v -> {
