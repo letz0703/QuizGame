@@ -49,6 +49,7 @@ public class Login_Page extends AppCompatActivity
             String userMail = email.getText().toString();
             String userPassword = password.getText().toString();
             signInWithFirebase(userMail, userPassword);
+            progressBar_Login.setVisibility(View.INVISIBLE);
         });
 
         SigninGoogle.setOnClickListener(v -> {
@@ -102,8 +103,6 @@ public class Login_Page extends AppCompatActivity
             startActivity(i);
             finish();
         }
-
-
-
+        progressBar_Login.setVisibility(View.INVISIBLE);
     }
 }
