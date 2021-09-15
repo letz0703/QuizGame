@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -34,7 +35,8 @@ public class Forgot_Password extends AppCompatActivity
         progressBar = findViewById(R.id.progressBar_Forgot_Password);
 
         btnSendEmail.setOnClickListener(v -> {
-
+            String userMail = etEmail.getText().toString();
+            resetPassword(userMail);
         });
     }
 
@@ -46,6 +48,18 @@ public class Forgot_Password extends AppCompatActivity
         {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful())
+                {
+                    Toast.makeText(Forgot_Password.this, "check you email to reset password"
+                            , Toast.LENGTH_SHORT).show();
+                    btnSendEmail.setClickable(false);
+                    progressBar.setVisibility(View.INVISIBLE);
+                    finish();
+
+                } else {
+                    Toast.makeText(Forgot_Password.this, "There is a problem. Please try again"
+                            , Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
