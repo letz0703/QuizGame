@@ -62,9 +62,9 @@ public class Login_Page extends AppCompatActivity
         });
 
         forgotPassword.setOnClickListener(v -> {
-
+            Intent igo_Forgot_Password = new Intent(Login_Page.this,Forgot_Password.class);
+            startActivity(igo_Forgot_Password);
         });
-
     }
 
     public void signInWithFirebase(String userMail, String userPassword) {
