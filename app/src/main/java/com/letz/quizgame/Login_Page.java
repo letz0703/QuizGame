@@ -71,7 +71,7 @@ public class Login_Page extends AppCompatActivity
         });
 
         forgotPassword.setOnClickListener(v -> {
-            Intent igo_Forgot_Password = new Intent(Login_Page.this,Forgot_Password.class);
+            Intent igo_Forgot_Password = new Intent(Login_Page.this, Forgot_Password.class);
             startActivity(igo_Forgot_Password);
         });
     }
@@ -85,16 +85,13 @@ public class Login_Page extends AppCompatActivity
                 {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful())
-                        {
-                            Intent igoMain = new Intent(Login_Page.this,MainActivity.class);
+                        if (task.isSuccessful()) {
+                            Intent igoMain = new Intent(Login_Page.this, MainActivity.class);
                             startActivity(igoMain);
                             finish();
                             progressBar_Login.setVisibility(View.INVISIBLE);
                             Toast.makeText(Login_Page.this, "Signed in successfully!", Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
+                        } else {
                             Toast.makeText(Login_Page.this, "Sign In Failed", Toast.LENGTH_SHORT).show();
                         }
 
@@ -106,17 +103,15 @@ public class Login_Page extends AppCompatActivity
     protected void onStart() {
         super.onStart();
         FirebaseUser user = auth.getCurrentUser();
-        if (user != null)
-        {
-            Intent i = new Intent(Login_Page.this,MainActivity.class);
+        if (user != null) {
+            Intent i = new Intent(Login_Page.this, MainActivity.class);
             startActivity(i);
             finish();
         }
         progressBar_Login.setVisibility(View.INVISIBLE);
     }
 
-    public void signInGoogle()
-    {
+    public void signInGoogle() {
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(
                 GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -127,16 +122,16 @@ public class Login_Page extends AppCompatActivity
         signIn();
     }
 
-    public void signIn()
-    {
+    public void signIn() {
         Intent iSignIn = googleSignInClient.getSignInIntent();
         launchSignInGoogle.launch(iSignIn);
 
     }
 
-    ActivityResultLauncher< Intent > launchSignInGoogle = registerForActivityResult(
+    ActivityResultLauncher<Intent> launchSignInGoogle = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
+            new ActivityResultCallback<ActivityResult>()
+            {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == RESULT_OK) {
