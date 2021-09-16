@@ -1,5 +1,9 @@
 package com.letz.quizgame;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +16,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,6 +37,8 @@ public class Login_Page extends AppCompatActivity
     TextView forgotPassword;
     ProgressBar progressBar_Login;
     FirebaseAuth auth = FirebaseAuth.getInstance();
+    GoogleSignInClient googleSignInClient;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +62,7 @@ public class Login_Page extends AppCompatActivity
         });
 
         SigninGoogle.setOnClickListener(v -> {
-
+            signInGoogle();
         });
 
         signUp.setOnClickListener(v -> {
@@ -105,4 +114,36 @@ public class Login_Page extends AppCompatActivity
         }
         progressBar_Login.setVisibility(View.INVISIBLE);
     }
+
+    public void signInGoogle()
+    {
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(
+                GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail().build();
+
+        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
+
+        signIn();
+    }
+
+    public void signIn()
+    {
+        Intent iSignIn = googleSignInClient.getSignInIntent();
+        launchSignInGoogle.launch(iSignIn);
+
+    }
+
+    ActivityResultLauncher< Intent > launchSignInGoogle = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == RESULT_OK) {
+                        Intent data = result.getData();
+
+                    }
+                }
+            }
+    );
 }
