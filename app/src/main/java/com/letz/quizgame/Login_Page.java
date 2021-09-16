@@ -17,14 +17,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 public class Login_Page extends AppCompatActivity
 {
@@ -112,12 +116,12 @@ public class Login_Page extends AppCompatActivity
     }
 
     public void signInGoogle() {
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(
                 GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail().build();
 
-        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
 
         signIn();
     }
@@ -136,9 +140,46 @@ public class Login_Page extends AppCompatActivity
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == RESULT_OK) {
                         Intent data = result.getData();
+                        Task<GoogleSignInAccount> task
+                                = GoogleSignIn.getSignedInAccountFromIntent(data);
+                        firebaseSignInWithGoogle(task);
 
                     }
                 }
             }
     );
+
+    private void firebaseSignInWithGoogle(Task<GoogleSignInAccount> task) {
+        try {
+            GoogleSignInAccount account = task.getResult(ApiException.class);
+            Toast.makeText(Login_Page.this, "Signed In successfully", Toast.LENGTH_SHORT).show();
+            Intent igoMain = new Intent(Login_Page.this, MainActivity.class);
+            startActivity(igoMain);
+            finish();
+            firebaseGoogleAccount(account);
+
+        } catch (ApiException e) {
+            e.printStackTrace();
+            Toast.makeText(Login_Page.this, "Failed sing in.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void firebaseGoogleAccount(GoogleSignInAccount account) {
+        //login 된 기기 확인 가능
+        AuthCredential authCredential
+                = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+
+        auth.signInWithCredential(authCredential).addOnCompleteListener(this
+                , new OnCompleteListener<AuthResult>()
+                {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = auth.getCurrentUser();
+                        } else {
+
+                        }
+                    }
+                });
+    }
 }
