@@ -32,7 +32,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class Login_Page extends AppCompatActivity
 {
-
     EditText email;
     EditText password;
     Button SignIn;
@@ -68,7 +67,6 @@ public class Login_Page extends AppCompatActivity
         SigninGoogle.setOnClickListener(v -> {
             signInGoogle();
         });
-
         signUp.setOnClickListener(v -> {
             Intent i = new Intent(Login_Page.this, Signup_Page.class);
             startActivity(i);
@@ -116,8 +114,7 @@ public class Login_Page extends AppCompatActivity
     }
 
     public void signInGoogle() {
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(
-                GoogleSignInOptions.DEFAULT_SIGN_IN)
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail().build();
 
