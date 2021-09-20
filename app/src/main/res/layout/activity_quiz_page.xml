@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".QuizPage"
+        android:background="@drawable/bg_orange">
+
+    <TextView
+            android:text="Correct Answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            tools:layout_editor_absoluteY="10dp"
+            tools:layout_editor_absoluteX="119dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvCorrect_QuizPage"
+            tools:layout_editor_absoluteY="10dp"
+            tools:layout_editor_absoluteX="236dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    <TextView
+            android:text="Wrong Answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            tools:layout_editor_absoluteY="10dp"
+            tools:layout_editor_absoluteX="265dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    <TextView
+            android:text="60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTime_QuizPage"
+            tools:layout_editor_absoluteY="10dp"
+            tools:layout_editor_absoluteX="62dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    <TextView
+            android:text="Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTime"
+            tools:layout_editor_absoluteY="10dp"
+            tools:layout_editor_absoluteX="16dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWrong_QuizPage"
+            tools:layout_editor_absoluteY="10dp"
+            tools:layout_editor_absoluteX="378dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    <TextView
+            android:text="tvQ"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:id="@+id/tvQuestion"
+            tools:layout_editor_absoluteY="64dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    <TextView
+            android:text="tvAnswer"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:id="@+id/tvAnswer1_QuizPage"
+            tools:layout_editor_absoluteY="173dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    <TextView
+            android:text="tvAnswer"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:id="@+id/tvAnswer3_QuizPage"
+            tools:layout_editor_absoluteY="296dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    <TextView
+            android:text="tvAnswer"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:id="@+id/tvAnswer2_QuizPage"
+            tools:layout_editor_absoluteY="233dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    <TextView
+            android:text="tvAnswer"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:id="@+id/tvAnswer4_QuizPage"
+            tools:layout_editor_absoluteY="358dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    <Button
+            android:text="finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnFinish_QuizPage"
+            tools:layout_editor_absoluteY="442dp"
+            tools:layout_editor_absoluteX="90dp"
+            android:background="@android:color/background_dark"
+            android:textColor="@color/white" />
+
+    <Button
+            android:text="NEXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnNext_QuizPage"
+            tools:layout_editor_absoluteY="442dp"
+            tools:layout_editor_absoluteX="229dp"
+            android:background="@android:color/background_dark"
+            android:textColor="@color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
