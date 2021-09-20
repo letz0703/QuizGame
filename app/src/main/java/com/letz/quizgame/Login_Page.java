@@ -140,7 +140,6 @@ public class Login_Page extends AppCompatActivity
                         Task<GoogleSignInAccount> task
                                 = GoogleSignIn.getSignedInAccountFromIntent(data);
                         firebaseSignInWithGoogle(task);
-
                     }
                 }
             }
@@ -173,6 +172,7 @@ public class Login_Page extends AppCompatActivity
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = auth.getCurrentUser();
+
                         } else {
 
                         }

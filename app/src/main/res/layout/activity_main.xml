@@ -16,6 +16,35 @@
             app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/tvSignOut"
             android:textSize="20sp"
-            android:textColor="@android:color/black" />
+            android:textColor="@color/white"
+            app:layout_constraintVertical_bias="0.786"
+            android:background="@color/orange_title"
+            android:padding="10dp" />
+
+    <ImageView
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            app:srcCompat="@drawable/quiz_show_pic"
+            android:id="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/button" />
+
+    <Button
+            android:text="start quiz"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:id="@+id/button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            android:layout_marginBottom="182dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
