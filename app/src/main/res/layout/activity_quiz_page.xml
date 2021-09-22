@@ -12,149 +12,192 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView4"
-            tools:layout_editor_absoluteY="10dp"
-            tools:layout_editor_absoluteX="119dp"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView6"
+            android:layout_marginEnd="37dp" />
 
     <TextView
             android:text="0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvCorrect_QuizPage"
-            tools:layout_editor_absoluteY="10dp"
-            tools:layout_editor_absoluteX="236dp"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/textView4" />
 
     <TextView
             android:text="Wrong Answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView6"
-            tools:layout_editor_absoluteY="10dp"
-            tools:layout_editor_absoluteX="265dp"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/tvWrong_QuizPage"
+            android:layout_marginEnd="9dp" />
 
     <TextView
             android:text="60"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvTime_QuizPage"
-            tools:layout_editor_absoluteY="10dp"
-            tools:layout_editor_absoluteX="62dp"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/tvTime" />
 
     <TextView
             android:text="Time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvTime"
-            tools:layout_editor_absoluteY="10dp"
-            tools:layout_editor_absoluteX="16dp"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp" />
 
     <TextView
             android:text="0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvWrong_QuizPage"
-            tools:layout_editor_absoluteY="10dp"
-            tools:layout_editor_absoluteX="378dp"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@+id/quizQuestion"
+            app:layout_constraintEnd_toEndOf="@+id/quizQuestion" />
 
     <TextView
             android:text="tvQ"
             android:layout_width="350dp"
             android:layout_height="100dp"
-            android:id="@+id/tvQuestion"
-            tools:layout_editor_absoluteY="64dp"
+            android:id="@+id/quizQuestion"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/white"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="64dp"
+            app:layout_constraintBottom_toBottomOf="@+id/quizAnswerA"
+            android:layout_marginBottom="59dp" />
 
     <TextView
             android:text="tvAnswer"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:id="@+id/tvAnswer1_QuizPage"
-            tools:layout_editor_absoluteY="173dp"
+            android:id="@+id/quizAnswerA"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/white"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="173dp" />
 
     <TextView
             android:text="tvAnswer"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:id="@+id/tvAnswer3_QuizPage"
-            tools:layout_editor_absoluteY="296dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/white"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginTop="73dp"
+            app:layout_constraintTop_toBottomOf="@+id/quizAnswerA"
+            android:id="@+id/quizAnswerC" />
 
     <TextView
             android:text="tvAnswer"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:id="@+id/tvAnswer2_QuizPage"
-            tools:layout_editor_absoluteY="233dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="140dp"
+            app:layout_constraintTop_toBottomOf="@+id/quizAnswerA"
+            android:id="@+id/quizAnswerD" />
+
+    <TextView
+            android:text="tvAnswer"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:id="@+id/quizAnswerB"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/white"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="@+id/quizAnswerA"
+            android:layout_marginTop="60dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAnswer3_QuizPage"
+            android:layout_marginBottom="63dp" />
 
     <TextView
             android:text="tvAnswer"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:id="@+id/tvAnswer4_QuizPage"
-            tools:layout_editor_absoluteY="358dp"
+            android:id="@+id/tvCorrectAnswer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/white"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginTop="11dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvAnswer3_QuizPage"
+            app:layout_constraintBottom_toTopOf="@+id/quizQuestion"
+            android:layout_marginBottom="12dp" />
 
     <Button
             android:text="finish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnFinish_QuizPage"
-            tools:layout_editor_absoluteY="442dp"
-            tools:layout_editor_absoluteX="90dp"
             android:background="@android:color/background_dark"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/quizAnswerD"
+            android:layout_marginTop="56dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="88dp" />
 
     <Button
             android:text="NEXT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnNext_QuizPage"
-            tools:layout_editor_absoluteY="442dp"
-            tools:layout_editor_absoluteX="229dp"
             android:background="@android:color/background_dark"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/quizAnswerD"
+            android:layout_marginTop="56dp"
+            app:layout_constraintStart_toEndOf="@+id/btnFinish_QuizPage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.419" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

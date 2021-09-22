@@ -27,7 +27,7 @@ public class QuizPage extends AppCompatActivity
     String quizAnswerB;
     String quizAnswerC;
     String quizAnswerD;
-    String quizCorrectAnswer;
+    String tvCorrectAnswer;
     int questionCount;
     int questionNumber = 1;
 
@@ -39,18 +39,18 @@ public class QuizPage extends AppCompatActivity
         time = findViewById(R.id.tvTime_QuizPage);
         correct = findViewById(R.id.tvCorrect_QuizPage);
         wrong = findViewById(R.id.tvWrong_QuizPage);
-        question = findViewById(R.id.tvQuestion);
-        a = findViewById(R.id.tvAnswer1_QuizPage);
-        b = findViewById(R.id.tvAnswer2_QuizPage);
-        c = findViewById(R.id.tvAnswer3_QuizPage);
-        d = findViewById(R.id.tvAnswer4_QuizPage);
+        question = findViewById(R.id.quizQuestion);
+        a = findViewById(R.id.quizAnswerA);
+        b = findViewById(R.id.quizAnswerB);
+        c = findViewById(R.id.quizAnswerC);
+        d = findViewById(R.id.quizAnswerD);
         next = findViewById(R.id.btnNext_QuizPage);
         finish = findViewById(R.id.btnFinish_QuizPage);
 
-
+        game();
         
         next.setOnClickListener(v -> {
-            
+            game();
         });
         
         finish.setOnClickListener(v -> {
@@ -76,7 +76,7 @@ public class QuizPage extends AppCompatActivity
                 quizAnswerB = dataSnapshot.child(String.valueOf(questionNumber)).child("b").getValue().toString();
                 quizAnswerC= dataSnapshot.child(String.valueOf(questionNumber)).child("c").getValue().toString();
                 quizAnswerD = dataSnapshot.child(String.valueOf(questionNumber)).child("d").getValue().toString();
-                quizCorrectAnswer = dataSnapshot.child(String.valueOf(questionNumber)).child("answer").getValue().toString();
+                tvCorrectAnswer = dataSnapshot.child(String.valueOf(questionNumber)).child("answer").getValue().toString();
 
                 question.setText(quizQuestion);
                 a.setText(quizAnswerA);
@@ -97,6 +97,7 @@ public class QuizPage extends AppCompatActivity
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
+                Toast.makeText(QuizPage.this, "There is a problem", Toast.LENGTH_SHORT).show();
             }
         });
     }
