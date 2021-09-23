@@ -90,7 +90,7 @@ public class QuizPage extends AppCompatActivity
                 }
                 else
                 {
-                    Toast.makeText(QuizPage.this, "You answered all questions", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizPage.this, "You answered all questions", Toast.LENGTH_LONG).show();
                 }
             }
 

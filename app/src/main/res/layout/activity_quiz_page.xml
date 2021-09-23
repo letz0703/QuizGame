@@ -160,7 +160,8 @@
             android:layout_marginTop="11dp"
             app:layout_constraintTop_toBottomOf="@+id/tvAnswer3_QuizPage"
             app:layout_constraintBottom_toTopOf="@+id/quizQuestion"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="4dp"
+            android:visibility="invisible" />
 
     <TextView
             android:text="tvAnswer"
