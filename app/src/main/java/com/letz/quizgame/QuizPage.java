@@ -20,7 +20,7 @@ public class QuizPage extends AppCompatActivity
     Button next, finish;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference databaseReference = database.getReference().child("Questions");
+    DatabaseReference databaseReference = database.getReference().child("Qustions");
 
     String quizQuestion;
     String quizAnswerA;
