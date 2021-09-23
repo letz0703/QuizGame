@@ -2,6 +2,7 @@ package com.letz.quizgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,6 +32,8 @@ public class QuizPage extends AppCompatActivity
     int questionCount;
     int questionNumber = 1;
 
+    String userAnswer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,28 @@ public class QuizPage extends AppCompatActivity
         finish.setOnClickListener(v -> {
             
         });
+
+        a.setOnClickListener(v -> {
+            userAnswer = "a";
+            if (tvCorrectAnswer.equals(userAnswer))
+            {
+                a.setBackgroundColor(Color.GREEN);
+
+            } else {
+
+            };
+        });
+        b.setOnClickListener(v -> {
+            userAnswer = "b";
+        });
+        c.setOnClickListener(v -> {
+            userAnswer = "c";
+        });
+        d.setOnClickListener(v -> {
+            userAnswer = "d";
+        });
+
+
         
 
     }
