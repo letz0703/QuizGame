@@ -38,7 +38,8 @@ public class QuizPage extends AppCompatActivity
     int countUserWrong = 0;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_page);
 
@@ -65,12 +66,15 @@ public class QuizPage extends AppCompatActivity
 
         a.setOnClickListener(v -> {
             userAnswer = "a";
-            if (dbAnswer.equals(userAnswer)) {
+            if (dbAnswer.equals(userAnswer))
+            {
                 a.setBackgroundColor(Color.GREEN);
                 countUserCorrect++;
                 correct.setText("" + countUserCorrect);
 
-            } else {
+            }
+            else
+            {
                 a.setBackgroundColor(Color.RED);
                 Toast.makeText(QuizPage.this, "Wrong!!!", Toast.LENGTH_SHORT).show();
                 countUserWrong++;
@@ -80,12 +84,15 @@ public class QuizPage extends AppCompatActivity
         });
         b.setOnClickListener(v -> {
             userAnswer = "b";
-            if (dbAnswer.equals(userAnswer)) {
+            if (dbAnswer.equals(userAnswer))
+            {
                 b.setBackgroundColor(Color.GREEN);
                 countUserCorrect++;
                 correct.setText("" + countUserCorrect);
 
-            } else {
+            }
+            else
+            {
                 b.setBackgroundColor(Color.RED);
                 Toast.makeText(QuizPage.this, "Wrong!!!", Toast.LENGTH_SHORT).show();
                 countUserWrong++;
@@ -96,12 +103,15 @@ public class QuizPage extends AppCompatActivity
         });
         c.setOnClickListener(v -> {
             userAnswer = "c";
-            if (dbAnswer.equals(userAnswer)) {
+            if (dbAnswer.equals(userAnswer))
+            {
                 c.setBackgroundColor(Color.GREEN);
                 countUserCorrect++;
                 correct.setText("" + countUserCorrect);
 
-            } else {
+            }
+            else
+            {
                 c.setBackgroundColor(Color.RED);
                 Toast.makeText(QuizPage.this, "Wrong!!!", Toast.LENGTH_SHORT).show();
                 countUserWrong++;
@@ -112,12 +122,15 @@ public class QuizPage extends AppCompatActivity
         });
         d.setOnClickListener(v -> {
             userAnswer = "d";
-            if (dbAnswer.equals(userAnswer)) {
+            if (dbAnswer.equals(userAnswer))
+            {
                 d.setBackgroundColor(Color.GREEN);
                 countUserCorrect++;
                 correct.setText("" + countUserCorrect);
 
-            } else {
+            }
+            else
+            {
                 d.setBackgroundColor(Color.RED);
                 Toast.makeText(QuizPage.this, "Wrong!!!", Toast.LENGTH_SHORT).show();
                 countUserWrong++;
@@ -127,6 +140,7 @@ public class QuizPage extends AppCompatActivity
             ;
         });
     }
+
     public void game()
     {
         a.setBackgroundColor(Color.WHITE);
@@ -138,7 +152,8 @@ public class QuizPage extends AppCompatActivity
         {
 
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
 //                String value = dataSnapshot.getValue(String.class);
@@ -157,29 +172,41 @@ public class QuizPage extends AppCompatActivity
                 c.setText(quizAnswerC);
                 d.setText(quizAnswerD);
 
-                if (questionNumber < questionCount) {
+                if (questionNumber < questionCount)
+                {
                     questionNumber++;
-                } else {
+                }
+                else
+                {
                     Toast.makeText(QuizPage.this, "Finished", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
+            public void onCancelled(DatabaseError error)
+            {
                 // Failed to read value
                 Toast.makeText(QuizPage.this, "There is a problem", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public void markCorrectAnswer() {
-        if (dbAnswer.equals("a")) {
+    public void markCorrectAnswer()
+    {
+        if (dbAnswer.equals("a"))
+        {
             a.setBackgroundColor(Color.GREEN);
-        } else if (dbAnswer.equals("b")) {
+        }
+        else if (dbAnswer.equals("b"))
+        {
             b.setBackgroundColor(Color.GREEN);
-        } else if (dbAnswer.equals("c")) {
+        }
+        else if (dbAnswer.equals("c"))
+        {
             c.setBackgroundColor(Color.GREEN);
-        } else if (dbAnswer.equals("d")) {
+        }
+        else if (dbAnswer.equals("d"))
+        {
             d.setBackgroundColor(Color.GREEN);
         }
     }
