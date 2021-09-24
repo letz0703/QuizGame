@@ -57,10 +57,6 @@ public class QuizPage extends AppCompatActivity
 
         next.setOnClickListener(v -> {
             game();
-            a.setBackgroundColor(Color.WHITE);
-            b.setBackgroundColor(Color.WHITE);
-            c.setBackgroundColor(Color.WHITE);
-            d.setBackgroundColor(Color.WHITE);
         });
 
         finish.setOnClickListener(v -> {
@@ -131,8 +127,12 @@ public class QuizPage extends AppCompatActivity
             ;
         });
     }
-
-    public void game() {
+    public void game()
+    {
+        a.setBackgroundColor(Color.WHITE);
+        b.setBackgroundColor(Color.WHITE);
+        c.setBackgroundColor(Color.WHITE);
+        d.setBackgroundColor(Color.WHITE);
         // Read from the database
         databaseReference.addValueEventListener(new ValueEventListener()
         {
