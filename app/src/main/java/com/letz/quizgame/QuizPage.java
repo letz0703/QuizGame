@@ -63,6 +63,7 @@ public class QuizPage extends AppCompatActivity
         game();
 
         next.setOnClickListener(v -> {
+            resetTimer();
             game();
         });
 
@@ -71,6 +72,7 @@ public class QuizPage extends AppCompatActivity
         });
 
         a.setOnClickListener(v -> {
+            pauseTimer();
             userAnswer = "a";
             if (dbAnswer.equals(userAnswer))
             {
@@ -88,6 +90,7 @@ public class QuizPage extends AppCompatActivity
             }
         });
         b.setOnClickListener(v -> {
+            pauseTimer();
             userAnswer = "b";
             if (dbAnswer.equals(userAnswer))
             {
@@ -103,9 +106,9 @@ public class QuizPage extends AppCompatActivity
                 wrong.setText("" + countUserWrong);
                 markCorrectAnswer();
             }
-            ;
         });
         c.setOnClickListener(v -> {
+            pauseTimer();
             userAnswer = "c";
             if (dbAnswer.equals(userAnswer))
             {
@@ -122,16 +125,15 @@ public class QuizPage extends AppCompatActivity
                 wrong.setText("" + countUserWrong);
                 markCorrectAnswer();
             }
-            ;
         });
         d.setOnClickListener(v -> {
+            pauseTimer();
             userAnswer = "d";
             if (dbAnswer.equals(userAnswer))
             {
                 d.setBackgroundColor(Color.GREEN);
                 countUserCorrect++;
                 correct.setText("" + countUserCorrect);
-
             }
             else
             {
@@ -141,12 +143,12 @@ public class QuizPage extends AppCompatActivity
                 wrong.setText("" + countUserWrong);
                 markCorrectAnswer();
             }
-            ;
         });
     }
 
     public void game()
     {
+        startTimer();
         a.setBackgroundColor(Color.WHITE);
         b.setBackgroundColor(Color.WHITE);
         c.setBackgroundColor(Color.WHITE);
@@ -231,7 +233,9 @@ public class QuizPage extends AppCompatActivity
             {
                 timerContinue = false;
                 pauseTimer();
+                question.setBackgroundColor(Color.RED);
                 question.setText("Sorry. Time is up");
+                wrong.setText("" + countUserWrong);
             }
         }.start();
 
@@ -246,8 +250,8 @@ public class QuizPage extends AppCompatActivity
 
     public void updateCountDownText()
     {
-        int second = (int) (timeLeft/1000) & 60;
-        time.setText(""+second);
+        int second = (int) (timeLeft / 1000) & 60;
+        time.setText("" + second);
     }
 
     public void pauseTimer()
