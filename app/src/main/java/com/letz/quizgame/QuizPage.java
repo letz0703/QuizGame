@@ -222,10 +222,8 @@ public class QuizPage extends AppCompatActivity
             @Override
             public void onTick(long millisUntilFinished)
             {
-
                 timeLeft = millisUntilFinished;
                 updateCountDownText();
-
             }
 
             @Override
@@ -240,13 +238,22 @@ public class QuizPage extends AppCompatActivity
         timerContinue = true;
     }
 
+    public void resetTimer()
+    {
+        timeLeft = TOTAL_TIME;
+        updateCountDownText();
+    }
+
     public void updateCountDownText()
     {
-
+        int second = (int) (timeLeft/1000) & 60;
+        time.setText(""+second);
     }
+
     public void pauseTimer()
     {
-        
+        countDownTimer.cancel();
+        timerContinue = false;
     }
 
 }
