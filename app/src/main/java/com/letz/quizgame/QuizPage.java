@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,11 @@ public class QuizPage extends AppCompatActivity
     String userAnswer;
     int countUserCorrect = 0;
     int countUserWrong = 0;
+
+    CountDownTimer countDownTimer;
+    private static final long TOTAL_TIME = 25000;
+    Boolean timerContinue;
+    long timeLeft = TOTAL_TIME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -71,7 +77,6 @@ public class QuizPage extends AppCompatActivity
                 a.setBackgroundColor(Color.GREEN);
                 countUserCorrect++;
                 correct.setText("" + countUserCorrect);
-
             }
             else
             {
@@ -89,7 +94,6 @@ public class QuizPage extends AppCompatActivity
                 b.setBackgroundColor(Color.GREEN);
                 countUserCorrect++;
                 correct.setText("" + countUserCorrect);
-
             }
             else
             {
@@ -209,6 +213,40 @@ public class QuizPage extends AppCompatActivity
         {
             d.setBackgroundColor(Color.GREEN);
         }
+    }
+
+    public void startTimer()
+    {
+        countDownTimer = new CountDownTimer(timeLeft, 1000)
+        {
+            @Override
+            public void onTick(long millisUntilFinished)
+            {
+
+                timeLeft = millisUntilFinished;
+                updateCountDownText();
+
+            }
+
+            @Override
+            public void onFinish()
+            {
+                timerContinue = false;
+                pauseTimer();
+                question.setText("Sorry. Time is up");
+            }
+        }.start();
+
+        timerContinue = true;
+    }
+
+    public void updateCountDownText()
+    {
+
+    }
+    public void pauseTimer()
+    {
+        
     }
 
 }
