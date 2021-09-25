@@ -246,8 +246,8 @@ public class QuizPage extends AppCompatActivity
 
     public void updateCountDownText()
     {
-        int second = (int) (timeLeft/1000) & 60;
-        time.setText(""+second);
+        int second = (int) (timeLeft / 1000) & 60;
+        time.setText("" + second);
     }
 
     public void pauseTimer()
