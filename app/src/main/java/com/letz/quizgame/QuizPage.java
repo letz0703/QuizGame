@@ -2,6 +2,7 @@ package com.letz.quizgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -9,6 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +26,12 @@ public class QuizPage extends AppCompatActivity
     Button next, finish;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference databaseReference = database.getReference().child("Qustions");
+    DatabaseReference dbrefQuestions = database.getReference().child("Qustions");
+
+    FirebaseAuth auth = FirebaseAuth.getInstance();
+    FirebaseUser user = auth.getCurrentUser();
+    DatabaseReference dbref = database.getReference();
+//    .child("score").child("userUID").child("countUserCorrect");
 
     String quizQuestion;
     String quizAnswerA;
@@ -32,7 +41,6 @@ public class QuizPage extends AppCompatActivity
     String dbAnswer;
     int questionCount;
     int questionNumber = 1;
-
 
     String userAnswer;
     int countUserCorrect = 0;
@@ -68,7 +76,11 @@ public class QuizPage extends AppCompatActivity
         });
 
         finish.setOnClickListener(v -> {
-
+            sendScore();
+            Intent iSore_Page = new Intent(QuizPage.this,Score_Page.class);
+            startActivity(iSore_Page);
+            finish();
+            
         });
 
         a.setOnClickListener(v -> {
@@ -154,7 +166,7 @@ public class QuizPage extends AppCompatActivity
         c.setBackgroundColor(Color.WHITE);
         d.setBackgroundColor(Color.WHITE);
         // Read from the database
-        databaseReference.addValueEventListener(new ValueEventListener()
+        dbrefQuestions.addValueEventListener(new ValueEventListener()
         {
 
             @Override
@@ -260,4 +272,18 @@ public class QuizPage extends AppCompatActivity
         timerContinue = false;
     }
 
+    public void sendScore()
+    {
+        String userUID = user.getUid();
+        dbref.child("score").child(userUID).child("correct").setValue(countUserCorrect)
+        .addOnSuccessListener(new OnSuccessListener<Void>()
+        {
+            @Override
+            public void onSuccess(Void unused)
+            {
+                Toast.makeText(QuizPage.this, "sores sent successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+        dbref.child("score").child(userUID).child("wrong").setValue(countUserWrong);
+    }
 }

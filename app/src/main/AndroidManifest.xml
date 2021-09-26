@@ -12,6 +12,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Login_Page">
         <activity
+                android:name=".Score_Page"
+                android:exported="true" />
+        <activity
                 android:name=".QuizPage"
                 android:exported="true" />
         <activity
