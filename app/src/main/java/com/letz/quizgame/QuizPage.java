@@ -77,7 +77,7 @@ public class QuizPage extends AppCompatActivity
 
         finish.setOnClickListener(v -> {
             sendScore();
-            Intent iSore_Page = new Intent(QuizPage.this,Score_Page.class);
+            Intent iSore_Page = new Intent(QuizPage.this,ScorePage.class);
             startActivity(iSore_Page);
             finish();
             
